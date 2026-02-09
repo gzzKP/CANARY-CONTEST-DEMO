@@ -1,0 +1,33 @@
+	public void OnScreenVisible()
+	{
+		// Default picker to today
+		DTP_StopCharts.DateTime = DateTime.Today;
+
+		// Align BYDay to start of week (Monday)
+		ControlBarChart byDay = Screen.ScreenControls["ByDay"] as ControlBarChart;
+		int offset = ((int)DateTime.Today.DayOfWeek + 6) % 7;
+		byDay.TimeStart = DateTime.Today.AddDays(-offset).ToString();
+
+		UpdateEstufaCharts(DateTime.Today);
+	}
+	
+	private void UpdateEstufaCharts(DateTime date)
+	{
+		ControlBarChart byDay = Screen.ScreenControls["ByDay"] as ControlBarChart;
+		ControlBarChart estufa1 = Screen.ScreenControls["Estufa1"] as ControlBarChart;
+		ControlBarChart estufa3 = Screen.ScreenControls["Estufa3"] as ControlBarChart;
+		ControlBarChart estufa5 = Screen.ScreenControls["Estufa5"] as ControlBarChart;
+		ControlBarChart byEstufa = Screen.ScreenControls["ByEstufa"] as ControlBarChart;
+		
+		string start = date.Date.ToString();
+		string end   = date.Date.AddDays(1).AddTicks(-1).ToString();
+
+		// By Estufa (summary)
+		byDay.TimeStart = start;
+		byEstufa.TimeStart = start;
+
+		// Individual Estufas
+		estufa1.TimeStart = start;
+		estufa3.TimeStart = start;
+		estufa5.TimeStart = start;
+	}
