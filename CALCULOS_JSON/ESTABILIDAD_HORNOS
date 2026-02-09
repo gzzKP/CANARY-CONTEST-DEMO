@@ -1,0 +1,161 @@
+[
+  {
+    "ChildJobs": [],
+    "Job": {
+      "Name": "E1 Stability",
+      "Folder": "/CycleCalculations/",
+      "OutputMode": "Tags",
+      "Notes": "",
+      "Trigger": {
+        "StartTime": {
+          "Seconds": 1768975200,
+          "Nanos": 0
+        },
+        "Mode": "Periodic",
+        "Periodic": {
+          "Interval": "1d",
+          "Offset": ""
+        },
+        "Delay": "1s",
+        "StartupOrder": 0,
+        "TriggerCase": "Periodic"
+      },
+      "Asset": {
+        "Path": "Quemador.Estufa1",
+        "Type": "Quemador"
+      },
+      "Tags": {
+        "IsTimeExtensionEnabled": true,
+        "AssetBranchLimit": -1,
+        "Tags": [
+          {
+            "Path": "KPI.Estufa1.%Asset%.Stability",
+            "ValueExpressionKey": "Burner_Stability",
+            "Properties": []
+          }
+        ]
+      },
+      "Expressions": [
+        {
+          "Key": "Burner_Stability",
+          "ValueExpression": "DurationInStateNonZero('[Quemador.Estufa1.%Asset%.ON]', '1d')  / DurationInStateNonZero('[Quemador.Estufa1.En_Proceso]', '1d') * 100",
+          "QualityExpression": "",
+          "HasQualityExpression": false,
+          "DataTypeOverride": "Unspecified",
+          "TimestampOverride": ""
+        }
+      ],
+      "LastModified": {
+        "Seconds": 1770319308,
+        "Nanos": 470620800
+      },
+      "OutputCase": "Tags"
+    }
+  },
+  {
+    "ChildJobs": [],
+    "Job": {
+      "Name": "E3 Stability",
+      "Folder": "/CycleCalculations/",
+      "OutputMode": "Tags",
+      "Notes": "",
+      "Trigger": {
+        "StartTime": {
+          "Seconds": 1768975200,
+          "Nanos": 0
+        },
+        "Mode": "Periodic",
+        "Periodic": {
+          "Interval": "1d",
+          "Offset": ""
+        },
+        "Delay": "1s",
+        "StartupOrder": 0,
+        "TriggerCase": "Periodic"
+      },
+      "Asset": {
+        "Path": "Quemador.Estufa3",
+        "Type": "Quemador"
+      },
+      "Tags": {
+        "IsTimeExtensionEnabled": true,
+        "AssetBranchLimit": -1,
+        "Tags": [
+          {
+            "Path": "KPI.Estufa3.%Asset%.Stability",
+            "ValueExpressionKey": "Burner_Stability",
+            "Properties": []
+          }
+        ]
+      },
+      "Expressions": [
+        {
+          "Key": "Burner_Stability",
+          "ValueExpression": "DurationInStateNonZero('[Quemador.Estufa3.%Asset%.ON]', '1d')  / DurationInStateNonZero('[Quemador.Estufa3.En_Proceso]', '1d') * 100",
+          "QualityExpression": "",
+          "HasQualityExpression": false,
+          "DataTypeOverride": "Unspecified",
+          "TimestampOverride": ""
+        }
+      ],
+      "LastModified": {
+        "Seconds": 1770319322,
+        "Nanos": 420680000
+      },
+      "OutputCase": "Tags"
+    }
+  },
+  {
+    "ChildJobs": [],
+    "Job": {
+      "Name": "E5 Stability_",
+      "Folder": "/CycleCalculations/",
+      "OutputMode": "Tags",
+      "Notes": "",
+      "Trigger": {
+        "StartTime": {
+          "Seconds": 1768975200,
+          "Nanos": 0
+        },
+        "Mode": "Periodic",
+        "Periodic": {
+          "Interval": "1d",
+          "Offset": ""
+        },
+        "Delay": "1s",
+        "StartupOrder": 0,
+        "TriggerCase": "Periodic"
+      },
+      "Asset": {
+        "Path": "Quemador.Estufa5",
+        "Type": "Quemador"
+      },
+      "Tags": {
+        "IsTimeExtensionEnabled": true,
+        "AssetBranchLimit": -1,
+        "Tags": [
+          {
+            "Path": "KPI.Estufa5.%Asset%.Stability",
+            "ValueExpressionKey": "Burner_Stability",
+            "Properties": []
+          }
+        ]
+      },
+      "Expressions": [
+        {
+          "Key": "Burner_Stability",
+          "ValueExpression": "DurationInStateNonZero('[Quemador.Estufa5.%Asset%.ON]', '1d')  / DurationInStateNonZero('[Quemador.Estufa5.En_Proceso]', '1d') * 100",
+          "QualityExpression": "",
+          "HasQualityExpression": false,
+          "DataTypeOverride": "Unspecified",
+          "TimestampOverride": ""
+        }
+      ],
+      "LastModified": {
+        "Seconds": 1770319334,
+        "Nanos": 874434300
+      },
+      "OutputCase": "Tags"
+    }
+  }
+]
