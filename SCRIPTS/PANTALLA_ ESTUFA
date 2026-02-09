@@ -1,0 +1,48 @@
+public void ValueBoxX_OnEndValueChange(object sender, TagSubscriptionArgs subscription, TVQ tvq)
+	{
+		UpdateGaugeScale("ValueBox1", LinearGauge1);
+
+	}
+ 
+	private void UpdateGaugeScale(string valueBoxName, ControlLinearGauge gauge)
+	{
+		ControlValueBox valueBox = Screen.ScreenControls[valueBoxName] as ControlValueBox;
+		if (valueBox == null || gauge == null)
+			return;
+ 
+		TVQ currentTvq = valueBox.Value;
+		object value = currentTvq?.Value;
+ 
+		double number;
+		if (double.TryParse(value?.ToString() ?? "NaN", out number))
+		{
+			gauge.ScaleMax = number;
+			gauge.MajorInterval = number / 4;
+		}
+	}
+	
+	
+	public void ValueBox2_OnBeginValueChange(object sender, TagSubscriptionArgs subscription, TVQ tvq)
+	{
+		if (tvq == null || tvq.Value == null)
+			return;
+
+		if (tvq.Value is bool b)
+		{
+			if (b)
+			{
+				tvq.Value = "ON";
+				ValueBox2.Color = Color.Green;   // text color green
+			}
+			else
+			{
+				tvq.Value = "OFF";
+				ValueBox2.Color = Color.Red;    // text color red
+			}
+		}
+		else
+		{
+			tvq.Value = "NaN";
+			ValueBox2.Color = Color.Black;      // default color
+		}
+	}
