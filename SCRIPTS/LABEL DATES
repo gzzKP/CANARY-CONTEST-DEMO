@@ -1,0 +1,28 @@
+	public void OnScreenVisible()
+	{
+		ControlLabel label1 = Screen.ScreenControls["Label1"] as ControlLabel;
+		ControlLabel label2 = Screen.ScreenControls["Label2"] as ControlLabel;
+		ControlLabel label3 = Screen.ScreenControls["Label3"] as ControlLabel;
+
+		DateTime endDate = DateTime.Now;
+		string end = endDate.ToString("dd/MM/yyyy");
+
+		if (label1 != null)
+		{
+			label1.Text = "CONSUMO HOY: " + end;
+		}
+
+		if (label2 != null)
+		{
+			string start7 = endDate.AddDays(-7).ToString("dd/MM/yyyy");
+			label2.Text = "CONSUMO ULT. 7 DIAS: " + start7 + " - " + end;
+		}
+
+		if (label3 != null)
+		{
+			// Last 30 days
+			string start30 = endDate.AddDays(-30).ToString("dd/MM/yyyy");
+			label3.Text = "CONSUMO ULT. 30 DIAS: " + start30 + " - " + end;
+		}
+
+	}
