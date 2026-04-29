@@ -133,8 +133,7 @@ All calculations include **data quality validation** to prevent KPIs from using 
   * Implement responsive design for mobile/tablet access
   * Add collapsible sections for advanced metrics
 * **Unified Navigation**: Create breadcrumb navigation across plant → furnace → burner hierarchy
-* **Dark Mode Support**: Improve usability in industrial control rooms with reduced eye strain
-
+  
 ### 2. **MQTT Data Publishing for Ecosystem Integration**
 
 * **Consumer-Ready Topics**: Define standardized MQTT output topics for downstream consumers
@@ -188,7 +187,7 @@ All calculations include **data quality validation** to prevent KPIs from using 
 
 ## Next Steps (Priority Order)
 
-1. **Phase 1**: Implement cleaner UI structure and MQTT output topics (Q3 2026)
-2. **Phase 2**: Extend to additional plants and furnace types (Q4 2026)
-3. **Phase 3**: Develop predictive maintenance models (Q1 2027)
-4. **Phase 4**: Build compliance and regulatory reporting module (Q2 2027)
+1. **Phase 1**: Implement cleaner UI structure and MQTT output topics
+2. **Phase 2**: Extend to additional plants and furnace types
+3. **Phase 3**: Develop predictive maintenance models
+4. **Phase 4**: Build compliance and regulatory reporting module
