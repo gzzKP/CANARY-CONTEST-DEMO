@@ -6,7 +6,7 @@
 
 This demo showcases a scalable industrial analytics architecture for **thermal treatment furnaces**, built on **MQTT**, **Canary Labs**, and **AXIOM**.
 
-The objective is to demonstrate how raw OT data from PLCs and field devices can be transformed into **structured, reliable, and reusable analytics** using an **Asset Model–driven approach**, without manual tag mappings.
+The objective is to demonstrate how raw OT data from PLCs and field devices can be transformed into **structured, reliable, and reusable analytics** using an **Asset Model–driven approach**, without manual tag-to-asset mapping.
 
 ---
 
@@ -110,6 +110,66 @@ KPIs are defined at the **asset type level** and inherited automatically:
 * Cycle duration metrics
 
 All calculations include **data quality validation** to prevent KPIs from using invalid or missing data.
+
+---
+
+## Recreating the Project: JSON Import Guide
+
+### Overview
+
+This repository includes JSON configuration files that contain all **Events** and **Calculations** definitions. These can be directly imported into **Canary Admin** to recreate the entire project setup without manual configuration.
+
+### JSON Files
+
+The configuration files are located in the `CALCULOS_JSON/` directory:
+
+* **`CALCULOS_JSON/EVENTOS`** — Event definitions (furnace cycle detection, fault tracking)
+* **`CALCULOS_JSON/ESTABILIDAD_HORNOS`** — Burner stability calculations and KPI formulas
+
+### How to Import
+
+#### Step 1: Access Canary Admin
+- Log into your Canary Labs instance
+- Navigate to **Admin Console** → **Jobs** or **Calculations**
+
+#### Step 2: Import Events
+1. Open the **Events** section in Canary Admin
+2. Click **Import** or **Load Configuration**
+3. Select the `CALCULOS_JSON/EVENTOS` file
+4. Review the event definitions (cycle start/stop conditions, properties, etc.)
+5. Click **Apply** to create the events
+
+#### Step 3: Import Calculations
+1. Open the **Calculations** or **KPIs** section
+2. Click **Import** or **Load Configuration**
+3. Select the `CALCULOS_JSON/ESTABILIDAD_HORNOS` file
+4. Review the calculation expressions and trigger settings
+5. Click **Apply** to deploy the calculations
+
+#### Step 4: Verify
+- Navigate to the **EVENTOS** and **Fallas** tabs in AXIOM
+- Confirm that all events are being detected
+- Verify that KPI tags are being populated with calculated values
+
+### Replicating the Project
+
+To replicate this project in a different environment:
+
+1. **Download** the JSON files from this repository
+2. **Import** them into your Canary Admin instance following the steps above
+3. **Customize** asset paths and MQTT topics to match your infrastructure
+4. **Connect** your MQTT broker and verify data ingestion
+5. **Export** your updated configurations back to JSON for version control and disaster recovery
+
+### Configuration Structure
+
+Each JSON file contains an array of job objects with the following key sections:
+
+- **Trigger**: Defines when the calculation runs (Periodic, Subscription-based, etc.)
+- **Asset**: Specifies the asset path and type
+- **Expressions**: Contains the calculation logic (using Canary expression language)
+- **Tags**: Output tag paths where results are written
+- **Properties**: Custom metadata and event properties
 
 ---
 
